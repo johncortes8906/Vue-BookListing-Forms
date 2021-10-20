@@ -1,7 +1,38 @@
 <template>
-  <form v-on:submit.prevent="bookSubmit(bookTitle, bookAuthor)" class="" action="#" method="post">
-    <input v-model="bookTitle" type="text" name="title" value="" placeholder="Book Title">
-    <input v-model="bookAuthor" type="text" name="author" value="" placeholder="Book Author">
+  <form
+    v-on:submit.prevent="bookSubmit()"
+    class=""
+    action="#"
+    method="post"
+  >
+    <input
+      v-model="bookData.bookTitle"
+      type="text"
+      name="title"
+      value=""
+      placeholder="Book Title"
+    />
+    <input
+      v-model="bookData.bookAuthor"
+      type="text"
+      name="author"
+      value=""
+      placeholder="Book Author"
+    />
+    <div>
+      <input
+        type="checkbox"
+        id="finishedReading"
+        v-model="bookData.finishedReading"
+      />
+      <label for="finishedReading">Finished reading?</label>
+    </div>
+    <div>
+      <input v-model="bookData.ownership" type="radio" id="borrowed" name="ownership" value="borrowed" />  
+      <label for="borrowed">Borrowed</label>
+      <input v-model="bookData.ownership" type="radio" id="borrowed" name="ownership" value="bought" />  
+      <label for="bought">Bought</label>
+    </div>
     <button type="submit" name="button">Add Book</button>
   </form>
 </template>
@@ -12,15 +43,19 @@ export default {
   props: ["books"],
   data() {
     return {
-      bookTitle: "",
-      bookAuthor: ""
+      bookData: {
+        bookTitle: "",
+        bookAuthor: "",
+        finishedReading: false,
+        ownership: [],
+      },
     };
   },
   methods: {
     bookSubmit(bookTitle, bookAuthor) {
       this.$emit("addBook", bookTitle, bookAuthor);
-    }
-  }
+    },
+  },
 };
 </script>
 
