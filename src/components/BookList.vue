@@ -21,7 +21,7 @@ export default {
       states: ["Want to Read", "Read", "Reading"],
       books: [
         { title: "Self-Reliance", author: "Ralph Waldo Emerson", finishedReading: true },
-        { title: "American Gods", author: "Neil Gaiman", finishedReading: false },
+        { title: "American Gods", author: "Neil Gaiman", finishedReading: true },
         { title: "Amusing Ourselves to Death", author: "Neil Postman", finishedReading: false }
       ]
     };
