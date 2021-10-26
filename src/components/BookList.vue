@@ -3,12 +3,18 @@
     <h1>{{ title }}</h1>
     <ul>
       <h2>Filtered Books By Ownership</h2>
-      <hr/>
-      <select v-model="holding">
-        <option v-for="filter in filters" :key="filter">{{ filter }}</option>
-      </select>
-      <hr/>
-      <book-item v-for="book in filteredBooks" :key="book.id" :book="book"></book-item>
+      <book-item v-for="book in books" :key="book.id" :book="book"></book-item>
+    </ul>
+    <hr>
+    <select v-model="holding">
+      <option v-for="filter in filters" :key="filter">{{ filter }}</option>
+    </select>
+    <ul>
+      <book-item
+        v-for="book in filteredBooks"
+        :key="book.id"
+        :book="book"
+      ></book-item>
     </ul>
     <br />
     <hr />
