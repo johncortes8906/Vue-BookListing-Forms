@@ -2,23 +2,13 @@
   <div>
     <h1>{{ title }}</h1>
     <ul>
-      <book-item
-        v-for="book in filteredBooks"
-        :key="book.id"
-        :book="book"
-      ></book-item>
-    </ul>
-    <hr />
-    <h2>Filtered Books By Ownership</h2>
-    <select v-model="holding">
-      <option v-for="filter in filters" :key="filter">{{ filter }}</option>
-    </select>
-    <ul>
-      <book-item
-        v-for="book in filteredBooks"
-        :key="book.id"
-        :book="book"
-      ></book-item>
+      <h2>Filtered Books By Ownership</h2>
+      <hr/>
+      <select v-model="holding">
+        <option v-for="filter in filters" :key="filter">{{ filter }}</option>
+      </select>
+      <hr/>
+      <book-item v-for="book in filteredBooks" :key="book.id" :book="book"></book-item>
     </ul>
     <br />
     <hr />
@@ -30,7 +20,6 @@
 import _ from "lodash";
 import BookItem from "./BookItem";
 import BookForm from "./BookForm";
-import BookItem from './BookItem.vue';
 
 export default {
   name: "BookList",
@@ -64,8 +53,7 @@ export default {
   },
   components: {
     BookItem,
-    BookForm
-    BookItem,
+    BookForm,
   },
   computed: {
     filteredBooks() {
