@@ -3,9 +3,11 @@
     <h1>{{ title }}</h1>
     <ul>
       <h2>Filtered Books By Ownership</h2>
+      <hr/>
       <select v-model="holding">
         <option v-for="filter in filters" :key="filter">{{ filter }}</option>
       </select>
+      <hr/>
       <book-item v-for="book in filteredBooks" :key="book.id" :book="book"></book-item>
     </ul>
     <br />
@@ -15,6 +17,7 @@
 </template>
 
 <script>
+import _ from "lodash";
 import BookItem from "./BookItem";
 import BookForm from "./BookForm";
 
